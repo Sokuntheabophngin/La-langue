@@ -1,1 +1,601 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La langue | Apprendre le français A1</title>
+
+<style>
+:root {
+  --violet: #A68BE0;
+  --violet-dark: #7655B5;
+  --lavande: #F0EAFE;
+  --fond: #FAF8FF;
+  --texte: #344054;
+  --jaune: #F6C85F;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  padding: 16px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 2px 10px #00000010;
+}
+
+.logo {
+  color: var(--violet-dark);
+  font-size: 27px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--texte);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background: var(--lavande);
+  color: var(--violet-dark);
+}
+
+.hero {
+  background: linear-gradient(135deg, #A68BE0, #C7B4F0);
+  color: white;
+  text-align: center;
+  padding: 65px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 22px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: var(--violet-dark);
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--jaune);
+  color: #333;
+}
+
+section {
+  padding: 45px 7%;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--violet-dark);
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 4px 14px #00000009;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card .emoji {
+  font-size: 43px;
+}
+
+.card h3 {
+  color: var(--violet-dark);
+  margin: 10px 0;
+}
+
+.card button {
+  margin-top: 15px;
+}
+
+.purple-btn {
+  background: var(--violet);
+  color: white;
+}
+
+.lesson {
+  background: white;
+  padding: 22px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  border-left: 5px solid var(--violet);
+}
+
+.lesson h3 {
+  color: var(--violet-dark);
+}
+
+#quiz {
+  background: var(--lavande);
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 650px;
+  margin: auto;
+}
+
+.quiz-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 10px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.quiz-option:hover {
+  border-color: var(--violet);
+}
+
+#quiz-result {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.chat {
+  max-width: 650px;
+  margin: auto;
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 4px 15px #00000010;
+}
+
+.chat-messages {
+  height: 260px;
+  overflow-y: auto;
+  padding: 12px;
+  background: var(--fond);
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.message {
+  padding: 10px 13px;
+  margin: 9px 0;
+  border-radius: 12px;
+  max-width: 90%;
+  overflow-wrap: anywhere;
+}
+
+.bot {
+  background: var(--lavande);
+}
+
+.user {
+  background: #E4F3E8;
+  margin-left: auto;
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  min-width: 0;
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #DDD;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+footer {
+  background: var(--violet-dark);
+  color: white;
+  text-align: center;
+  padding: 25px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media(max-width: 600px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  section {
+    padding: 35px 5%;
+  }
+
+  .chat-input {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌸 La langue</div>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#lecons">Leçons</a>
+    <a href="#exercices">Exercices</a>
+    <a href="#jeux">Quiz</a>
+    <a href="#assistant">Assistant IA</a>
+  </nav>
+</header>
+
+<main>
+
+<div class="hero" id="accueil">
+  <h1>Bonjour et bienvenue ! 👋</h1>
+  <p>Apprenons le français ensemble !</p>
+  <p>Un espace pour découvrir, pratiquer et progresser.</p>
+  <a href="#lecons" class="btn">Commencer à apprendre</a>
+</div>
+
+<section>
+  <h2 class="section-title">🌟 Mon espace d'apprentissage</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="emoji">📚</div>
+      <h3>Les leçons</h3>
+      <p>Découvre de nouveaux mots et des expressions simples.</p>
+      <a href="#lecons" class="btn purple-btn">Découvrir</a>
+    </div>
+
+    <div class="card">
+      <div class="emoji">✏️</div>
+      <h3>Les exercices</h3>
+      <p>Entraîne-toi pour améliorer ton français.</p>
+      <a href="#exercices" class="btn purple-btn">Pratiquer</a>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎮</div>
+      <h3>Jeux et quiz</h3>
+      <p>Teste tes connaissances en t'amusant.</p>
+      <a href="#jeux" class="btn purple-btn">Jouer</a>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🤖</div>
+      <h3>Assistant IA</h3>
+      <p>Pose tes questions et reçois de l'aide.</p>
+      <a href="#assistant" class="btn purple-btn">Discuter</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="lecons">
+  <h2 class="section-title">📚 Mes petites leçons</h2>
+
+  <div class="lesson">
+    <h3>Leçon 1 : Bonjour !</h3>
+    <p>Bonjour = សួស្តី</p>
+    <p>Bonsoir = ជំរាបសួរពេលល្ងាច</p>
+    <p>Au revoir = លាហើយ</p>
+  </div>
+
+  <div class="lesson">
+    <h3>Leçon 2 : Se présenter</h3>
+    <p>Je m'appelle Dara.</p>
+    <p>J'ai 13 ans.</p>
+    <p>Je suis cambodgien / cambodgienne.</p>
+  </div>
+
+  <div class="lesson">
+    <h3>Leçon 3 : Les nombres</h3>
+    <p>1 = un | 2 = deux | 3 = trois</p>
+    <p>4 = quatre | 5 = cinq | 6 = six</p>
+    <p>7 = sept | 8 = huit | 9 = neuf | 10 = dix</p>
+  </div>
+</section>
+
+<section id="exercices">
+  <h2 class="section-title">✏️ Je pratique le français</h2>
+
+  <div class="card">
+    <h3>Complète la phrase !</h3>
+    <p>Bonjour, je ______ Dara.</p>
+
+    <div style="margin-top:15px">
+      <button class="btn purple-btn"
+        onclick="checkExercise('appelle')">appelle</button>
+
+      <button class="btn purple-btn"
+        onclick="checkExercise('suis')">suis</button>
+    </div>
+
+    <p id="exercise-result" style="margin-top:15px"></p>
+  </div>
+</section>
+
+<section id="jeux">
+  <h2 class="section-title">🎮 Mon petit quiz</h2>
+
+  <div id="quiz">
+    <h3 id="question">Comment dit-on Hello en français ?</h3>
+    <div id="options"></div>
+    <p id="quiz-result"></p>
+
+    <button class="btn purple-btn" id="next-question"
+      onclick="nextQuestion()" hidden>
+      Question suivante →
+    </button>
+
+    <p id="score" style="margin-top:15px"></p>
+  </div>
+</section>
+
+<section id="assistant">
+  <h2 class="section-title">🤖 Mon assistant de français</h2>
+
+  <div class="chat">
+    <p><strong>Bonjour ! Je suis ton assistant de français.</strong></p>
+    <p>Tu peux me poser une question sur le français.</p>
+
+    <div class="chat-messages" id="messages">
+      <div class="message bot">
+        Bonjour ! 😊 Comment puis-je t'aider ?
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input id="chat-input" type="text"
+        placeholder="Écris ta question..."
+        onkeydown="if(event.key==='Enter')sendMessage()">
+
+      <button class="btn purple-btn" onclick="sendMessage()">
+        Envoyer
+      </button>
+    </div>
+
+    <p style="font-size:12px;margin-top:12px">
+      Version de démonstration : assistant automatique.
+      Une connexion à une IA sera nécessaire pour obtenir
+      de véritables réponses personnalisées.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <h3>🌸 La langue</h3>
+  <p>Apprendre le français avec plaisir !</p>
+  <p>© 2026 - Site pédagogique niveau A1</p>
+</footer>
+
+<script>
+
+function checkExercise(answer) {
+  const result = document.getElementById("exercise-result");
+
+  if (answer === "appelle") {
+    result.textContent = "Bravo ! Très bonne réponse ! 🎉";
+  } else {
+    result.textContent = "Essaie encore ! Quel verbe utilise-t-on pour dire son nom ?";
+  }
+}
+
+const questions = [
+  {
+    question: "Comment dit-on Hello en français ?",
+    options: ["Bonjour", "Merci", "Au revoir"],
+    answer: 0
+  },
+  {
+    question: "Comment dit-on Thank you en français ?",
+    options: ["Bonsoir", "Merci", "Salut"],
+    answer: 1
+  },
+  {
+    question: "Quel nombre est représenté par cinq ?",
+    options: ["3", "4", "5"],
+    answer: 2
+  },
+  {
+    question: "Complète : Je ... 13 ans.",
+    options: ["suis", "ai", "est"],
+    answer: 1
+  }
+];
+
+let currentQuestion = 0;
+let points = 0;
+let answered = false;
+
+function showQuestion() {
+  answered = false;
+  const q = questions[currentQuestion];
+
+  document.getElementById("question").textContent = q.question;
+  document.getElementById("quiz-result").textContent = "";
+  document.getElementById("next-question").hidden = true;
+
+  const options = document.getElementById("options");
+  options.innerHTML = "";
+
+  q.options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.className = "quiz-option";
+    button.textContent = option;
+    button.onclick = () => checkAnswer(index);
+    options.appendChild(button);
+  });
+
+  document.getElementById("score").textContent =
+    "Question " + (currentQuestion + 1) +
+    " sur " + questions.length;
+}
+
+function checkAnswer(index) {
+  if (answered) return;
+  answered = true;
+
+  const q = questions[currentQuestion];
+  const result = document.getElementById("quiz-result");
+
+  if (index === q.answer) {
+    points++;
+    result.textContent = "Bravo ! Bonne réponse ! 🎉";
+  } else {
+    result.textContent =
+      "La bonne réponse est : " + q.options[q.answer];
+  }
+
+  document.getElementById("next-question").hidden = false;
+
+  if (currentQuestion === questions.length - 1) {
+    document.getElementById("next-question").textContent =
+      "Voir mon résultat";
+  }
+}
+
+function nextQuestion() {
+  if (currentQuestion < questions.length - 1) {
+    currentQuestion++;
+    showQuestion();
+  } else {
+    document.getElementById("quiz").innerHTML =
+      "<h2>🎉 Bravo !</h2>" +
+      "<p>Tu as obtenu " + points + " / " +
+      questions.length + " points.</p>" +
+      "<button class='btn purple-btn' onclick='restartQuiz()'>" +
+      "Recommencer</button>";
+  }
+}
+
+function restartQuiz() {
+  currentQuestion = 0;
+  points = 0;
+
+  document.getElementById("quiz").innerHTML =
+    "<h3 id='question'></h3>" +
+    "<div id='options'></div>" +
+    "<p id='quiz-result'></p>" +
+    "<button class='btn purple-btn' id='next-question' " +
+    "onclick='nextQuestion()' hidden>Question suivante →</button>" +
+    "<p id='score' style='margin-top:15px'></p>";
+
+  showQuestion();
+}
+
+showQuestion();
+
+function sendMessage() {
+  const input = document.getElementById("chat-input");
+  const text = input.value.trim();
+
+  if (!text) return;
+
+  addMessage(text, "user");
+  input.value = "";
+
+  const lower = text.toLowerCase();
+
+  let reply = "Bonne question ! 😊 Relis ta leçon et essaie de réfléchir.";
+
+  if (lower.includes("bonjour")) {
+    reply = "Bonjour ! 😊 C'est une salutation. On dit Bonjour le matin et pendant la journée.";
+  }
+  else if (lower.includes("merci")) {
+    reply = "On dit Merci pour remercier quelqu'un. Comment dit-on Thank you en français ?";
+  }
+  else if (lower.includes("âge") || lower.includes("ans")) {
+    reply = "Pour parler de ton âge, utilise le verbe avoir. Exemple : J'ai 13 ans.";
+  }
+  else if (lower.includes("nom") || lower.includes("appelle")) {
+    reply = "Pour dire ton nom, utilise : Je m'appelle... Exemple : Je m'appelle Dara.";
+  }
+  else if (lower.includes("conjug") || lower.includes("être")) {
+    reply = "Le verbe être : je suis, tu es, il/elle est. Complète : Je ... élève ?";
+  }
+  else if (lower.includes("cambodge") || lower.includes("nationalité")) {
+    reply = "Je suis cambodgien (garçon) ou cambodgienne (fille).";
+  }
+  else if (lower.includes("aide")) {
+    reply = "Bien sûr ! 😊 Dis-moi ce que tu ne comprends pas.";
+  }
+
+  setTimeout(() => addMessage(reply, "bot"), 400);
+}
+
+function addMessage(text, type) {
+  const messages = document.getElementById("messages");
+  const message = document.createElement("div");
+
+  message.className = "message " + type;
+  message.textContent = text;
+
+  messages.appendChild(message);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+</script>
+
+</body>
+</html>
+
